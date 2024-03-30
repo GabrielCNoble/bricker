@@ -1,17 +1,17 @@
-#CC				:= gcc
-CC				:= x86_64-w64-mingw32-gcc
+CC				:= gcc
+#CC				:= x86_64-w64-mingw32-gcc
 CPP				:= g++
 C_SRC 			:= $(wildcard ./*.c)
 C_OBJ 			:= $(C_SRC:.c=.o)
 C_FLAGS			:= -g -std=c2x -O3
-LIB_BIN 		:= $(wildcard libs/*/lib/windows)
+LIB_BIN 		:= $(wildcard libs/*/lib/linux)
 LIB_INC 		:= $(wildcard libs/*/include)
 LIB_SRC_PATH 	:= $(wildcard libs/*/src)
 LIB_CPP_SRC		:= $(foreach path, $(LIB_SRC_PATH), $(wildcard $(path)/*.cpp) $(wildcard $(path)/**/*.cpp))
 LIB_C_SRC		:= $(foreach path, $(LIB_SRC_PATH), $(wildcard $(path)/*.c) $(wildcard $(path)/**/*.c))
 LIB_OBJ			:= $(LIB_CPP_SRC:.cpp=.o) $(LIB_C_SRC:.c=.o)
-#EXEC_NAME		:= bricker.out
-EXEC_NAME		:= bricker.exe
+EXEC_NAME		:= bricker.out
+#EXEC_NAME		:= bricker.exe
 
 
 %.o: %.cpp
